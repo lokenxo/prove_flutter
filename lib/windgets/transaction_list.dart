@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+     
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
@@ -26,7 +26,7 @@ class TransactionList extends StatelessWidget {
                   height: 10,
                 ),
                 Container(
-                    height: 200,
+                    height: 100,
                     child: Image.asset(
                       'assents/images/io.png',
                       fit: BoxFit.cover,

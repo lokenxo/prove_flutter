@@ -126,21 +126,26 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'USED STORE',
-        ),
-        actions: <Widget>[IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+    final appBar = AppBar(
+      title: Text(
+        'USED STORE',
       ),
+      actions: <Widget>[IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+    );
+    return Scaffold(
+      appBar: appBar,
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Head(),
-          Chart(_recentTransactions),
-          TransactionList(
-              _userTransactions, _deleteTransaction, _startEditTransaction),
+          Container(height: (MediaQuery.of(context).size.height - appBar.preferredSize.height- MediaQuery.of(context).padding.top) * 0.3, 
+                    child: Chart(_recentTransactions)),
+          Container(
+            height: (MediaQuery.of(context).size.height - appBar.preferredSize.height- MediaQuery.of(context).padding.top) * 0.5,
+            child: TransactionList(
+                _userTransactions, _deleteTransaction, _startEditTransaction),
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
